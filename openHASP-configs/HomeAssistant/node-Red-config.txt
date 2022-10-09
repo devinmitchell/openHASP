@@ -1,0 +1,18 @@
+
+
+fullchain.pem
+
+7d3m9ww2t4n1k&D£M(W@T$N!K
+
+password: homeassistant
+username: bubblet3a
+
+password: homeassistant
+username: bubblet3a
+
+privkey.pem
+
+default
+
+1880
+
