@@ -1,0 +1,53 @@
+#esptool.py --port /dev/tty.usbserial-0001 --baud 921600 --before default_reset --after hard_reset write_flash --flash_mode dio --flash_freq 40m --flash_size detect 0x1000 bootloader_dio_40m.bin 0x8000 partitions.bin 0xe000 boot_app0.bin 0x10000 lanbon_l8_ota_v0.6.2.bin
+
+esptool.py --baud 115200 --port /dev/tty.usbserial-0001 read_flash 0x0 0x800000 lanbon_homekit_backup_8M.bin
+
+esptool.py --port /dev/tty.usbserial-0001 --baud 921600 flash_id
+unplug
+esptool.py --port /dev/tty.usbserial-0001 --baud 921600 erase_flash
+unplug
+esptool.py --port /dev/tty.usbserial-0001 --baud 921600 write_flash 0x0 lanbon_l8_full_8MB_v0.6.2.bin
+unplug and remove ground loop
+minicom -D /dev/tty.usbserial-0001
+
+At this point you can plug it into the mains and use the AP to set Wifi. Pass is `haspadmin`. Wait for reboot to get IP.
+Go to IP.
+
+Update Debug to BSD
+Set MQTT settings 
+Update all template files now
+Update template style
+Update Display settings to 30/0
+Reboot
+
+
+CONFIGURE HOME ASSISTANT HERE
+from Home Assistant: Config -> Deevices -> Mosquitto Config and publish the following packet/payload:
+hasp/ensuite/config/gpio
+{"config":[197658,263456,329249,655628,655886,656155,0,0]}
+
+reboot lanbon 
+Wait until auto detected by HA, reboot again if necessary
+
+Configure HA aand move into correct rooms
+
+edit config/configuration.yaml and add plate to openhasp: 
+service stop console
+
+---
+
+GCP API Key:
+AIzaSyCAgUkTE7oqqkc1u8Astzoec0efPL_OdsE
+
+Project ID: nest-integration-343418
+
+Client ID
+315155345301-7q0e2hnc8uoods4r95juj4cil6lcgco3.apps.googleusercontent.com
+Client secret
+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
+
+First auth code:
+4/1AX4XfWi4SkNAkv7tZsQL4CqSQabrOWqjoxocKGgyZQ--FhvIvga0QpQeWeY
+
+Second:
+4/1AX4XfWhiGEYLRzJr24cFAz4EYYDgkn4vAnnjJPt07pO0G22TzaJAWTAf7ws

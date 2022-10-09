@@ -1,0 +1,79 @@
+
+# Configure a default setup of Home Assistant (frontend, api, etc)
+default_config:
+
+# Text to speech
+tts:
+  - platform: google_translate
+
+automation: !include automations.yaml
+script: !include scripts.yaml
+scene: !include scenes.yaml
+
+nest:
+  client_id: 315155345301-7q0e2hnc8uoods4r95juj4cil6lcgco3.apps.googleusercontent.com
+  client_secret: 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
+  # "Project ID" in the Device Access Console (not Cloud Project ID!)
+  project_id: c0b480a1-4ffe-484e-a621-486c933bb346
+
+alarm_control_panel:
+  - platform: manual
+    name: Alarm
+    code: 1776
+    arming_time: 15
+    delay_time: 30
+    trigger_time: 180
+
+# Example configuration.yaml entry
+sensor:
+  - platform: time_date
+    display_options:
+      - 'time'
+      - 'date'
+      - 'date_time'
+      - 'date_time_utc'
+      - 'date_time_iso'
+      - 'time_date'
+      - 'time_utc'
+      - 'beat'
+      
+openhasp:
+  plate9:
+    objects:
+      - obj: "p0b1"
+        properties:
+          "text_color": "{% if -30 <= state_attr('openhasp.openhasp_plate','rssi') |int %}green{% elif -31 > state_attr('openhasp.openhasp_plate','rssi') |int >= -50 %}orange{% elif -51 > state_attr('openhasp.openhasp_plate','rssi') |int >= -80 %}tomato{% else %}red{% endif %}"
+      - obj: "p0b4"
+        properties:
+          "text": "{{ states('sensor.time') }}"
+      - obj: "p0b7"
+        properties:
+          "text": "{{ states('sensor.power_usage') }}"
+      - obj: "p0b5"
+        properties:
+          "text": "{{ states('sensor.back_door_temperature') }}"
+      - obj: "p1b1" # switch, checkbox or btn with toggle true
+        properties:
+          "val": '{{ 1 if is_state("light.plate9_light_12", "on") else 0 }}'
+          "text": '{{ "\uE6E8 Hot Tub" if is_state("light.plate9_light_12", "on") else "\uE335 Hot Tub" | e }}'
+        event:
+          "down":
+            - service: homeassistant.toggle
+              entity_id: "light.plate9_light_12"
+      - obj: "p1b2" # switch, checkbox or btn with toggle true
+        properties:
+          "val": '{{ 1 if is_state("light.plate9_light_14", "on") else 0 }}'
+          "text": '{{ "\uE6E8 Hallway" if is_state("light.plate9_light_14", "on") else "\uE335 Hallway" | e }}'
+        event:
+          "down":
+            - service: homeassistant.toggle
+              entity_id: "light.plate9_light_14"
+      - obj: "p1b3" # switch, checkbox or btn with toggle true
+        properties:
+          "val": '{{ 1 if is_state("cover.velux_downstairs_bathroom", "on") else 0 }}'
+          "text": '{{ "\uE6E8" if is_state("cover.velux_downstairs_bathroom", "on") else "\uE335" | e }}'
+        event:
+          "down":
+            - service: homeassistant.toggle
+              entity_id: "cover.velux_downstairs_bathroom"
+

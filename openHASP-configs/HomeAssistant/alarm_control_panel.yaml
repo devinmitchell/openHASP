@@ -1,0 +1,6 @@
+  - platform: manual
+    name: Alarm
+    code: 1776
+    arming_time: 15
+    delay_time: 30
+    trigger_time: 180

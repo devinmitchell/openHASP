@@ -1,0 +1,16 @@
+
+# Configure a default setup of Home Assistant (frontend, api, etc)
+default_config:
+
+# Text to speech
+tts:
+  - platform: google_translate
+
+automation: !include automations.yaml
+script: !include scripts.yaml
+scene: !include scenes.yaml
+nest: !include nest.yaml
+alarm_control_panel: !include alarm_control_panel.yaml
+sensor: !include sensor.yaml
+openhasp: !include openhasp.yaml
+
