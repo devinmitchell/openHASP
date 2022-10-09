@@ -34,20 +34,3 @@ Configure HA aand move into correct rooms
 edit config/configuration.yaml and add plate to openhasp: 
 service stop console
 
----
-
-GCP API Key:
-AIzaSyCAgUkTE7oqqkc1u8Astzoec0efPL_OdsE
-
-Project ID: nest-integration-343418
-
-Client ID
-315155345301-7q0e2hnc8uoods4r95juj4cil6lcgco3.apps.googleusercontent.com
-Client secret
-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
-
-First auth code:
-4/1AX4XfWi4SkNAkv7tZsQL4CqSQabrOWqjoxocKGgyZQ--FhvIvga0QpQeWeY
-
-Second:
-4/1AX4XfWhiGEYLRzJr24cFAz4EYYDgkn4vAnnjJPt07pO0G22TzaJAWTAf7ws
