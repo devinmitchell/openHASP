@@ -22,6 +22,9 @@
       - obj: "p0b5"
         properties:
           "text": "{{ states('sensor.hallway_temperature') }}"
+      - obj: "p0b10"
+        properties:
+          "text": "{{ states('sensor.time') }}"
       - obj: "p0b14"
         properties:
           "text": "{{ state_attr('weather.beech_house', 'temperature') }}"
@@ -75,12 +78,12 @@
 
       - obj: "p1b5" # switch, checkbox or btn with toggle true
         properties:
-          "val": '{{ 1 if is_state("switch.unused", "on") else 0 }}'
-          "text": '{{ "Unused" if is_state("switch.unused", "on") else "Unused" | e }}'
+          "val": '{{ 1 if is_state("light.panic", "on") else 0 }}'
+          "text": '{{ "PANIC" if is_state("light.panic", "on") else "PANIC" | e }}'
         event:
           "down":
             - service: homeassistant.toggle
-              entity_id: "switch.unused"
+              entity_id: "light.panic"
 
       - obj: "p1b6" # switch, checkbox or btn with toggle true
         properties:
@@ -322,6 +325,9 @@
       - obj: "p0b5"
         properties:
           "text": "{{ states('sensor.hallway_temperature') }}"
+      - obj: "p0b10"
+        properties:
+          "text": "{{ states('sensor.time') }}"
       - obj: "p0b14"
         properties:
           "text": "{{ state_attr('weather.beech_house', 'temperature') }}"
@@ -377,12 +383,12 @@
 
       - obj: "p1b5" # switch, checkbox or btn with toggle true
         properties:
-          "val": '{{ 1 if is_state("switch.unused", "on") else 0 }}'
-          "text": '{{ "Unused" if is_state("switch.unused", "on") else "Unused" | e }}'
+          "val": '{{ 1 if is_state("light.panic", "on") else 0 }}'
+          "text": '{{ "PANIC" if is_state("light.panic", "on") else "PANIC" | e }}'
         event:
           "down":
             - service: homeassistant.toggle
-              entity_id: "switch.unused"
+              entity_id: "light.panic"
 
       - obj: "p1b6" # switch, checkbox or btn with toggle true
         properties:
@@ -644,6 +650,9 @@
       - obj: "p0b5"
         properties:
           "text": "{{ states('sensor.hallway_temperature') }}"
+      - obj: "p0b10"
+        properties:
+          "text": "{{ states('sensor.time') }}"
       - obj: "p0b14"
         properties:
           "text": "{{ state_attr('weather.beech_house', 'temperature') }}"
@@ -685,6 +694,34 @@
           "down":
             - service: homeassistant.toggle
               entity_id: "switch.garden_lights"
+
+
+      - obj: "p1b4" # switch, checkbox or btn with toggle true
+        properties:
+          "val": '{{ 1 if is_state("switch.unused", "on") else 0 }}'
+          "text": '{{ "Unused" if is_state("switch.unused", "on") else "Unused" | e }}'
+        event:
+          "down":
+            - service: homeassistant.toggle
+              entity_id: "switch.unused"
+
+      - obj: "p1b5" # switch, checkbox or btn with toggle true
+        properties:
+          "val": '{{ 1 if is_state("light.panic", "on") else 0 }}'
+          "text": '{{ "PANIC" if is_state("light.panic", "on") else "PANIC" | e }}'
+        event:
+          "down":
+            - service: homeassistant.toggle
+              entity_id: "light.panic"
+
+      - obj: "p1b6" # switch, checkbox or btn with toggle true
+        properties:
+          "val": '{{ 1 if is_state("switch.unused", "on") else 0 }}'
+          "text": '{{ "Unused" if is_state("switch.unused", "on") else "Unused" | e }}'
+        event:
+          "down":
+            - service: homeassistant.toggle
+              entity_id: "switch.unused"
 
 # Beginning of Alarm Panel
       - obj: "p12b1"          # Alarm Arm Home
@@ -908,6 +945,9 @@
       - obj: "p0b5"
         properties:
           "text": "{{ states('sensor.hallway_temperature') }}"
+      - obj: "p0b10"
+        properties:
+          "text": "{{ states('sensor.time') }}"
       - obj: "p0b14"
         properties:
           "text": "{{ state_attr('weather.beech_house', 'temperature') }}"
@@ -957,14 +997,16 @@
           "down":
             - service: homeassistant.toggle
               entity_id: "switch.unused"
+
       - obj: "p1b5" # switch, checkbox or btn with toggle true
         properties:
-          "val": '{{ 1 if is_state("light.unused", "on") else 0 }}'
-          "text": '{{ "Unused" if is_state("light.unused", "on") else "Unused" | e }}'
+          "val": '{{ 1 if is_state("light.panic", "on") else 0 }}'
+          "text": '{{ "PANIC" if is_state("light.panic", "on") else "PANIC" | e }}'
         event:
           "down":
             - service: homeassistant.toggle
-              entity_id: "light.unused"
+              entity_id: "light.panic"
+
       - obj: "p1b6" # switch, checkbox or btn with toggle true
         properties:
           "val": '{{ 1 if is_state("light.ensuite_light_27", "on") else 0 }}'
@@ -1320,6 +1362,9 @@
       - obj: "p0b5"
         properties:
           "text": "{{ states('sensor.hallway_temperature') }}"
+      - obj: "p0b10"
+        properties:
+          "text": "{{ states('sensor.time') }}"
       - obj: "p0b14"
         properties:
           "text": "{{ state_attr('weather.beech_house', 'temperature') }}"
@@ -1375,12 +1420,12 @@
 
       - obj: "p1b5" # switch, checkbox or btn with toggle true
         properties:
-          "val": '{{ 1 if is_state("switch.unused", "on") else 0 }}'
-          "text": '{{ "Unused" if is_state("switch.unused", "on") else "Unused" | e }}'
+          "val": '{{ 1 if is_state("light.panic", "on") else 0 }}'
+          "text": '{{ "PANIC" if is_state("light.panic", "on") else "PANIC" | e }}'
         event:
           "down":
             - service: homeassistant.toggle
-              entity_id: "switch.unused"
+              entity_id: "light.panic"
 
       - obj: "p1b6" # switch, checkbox or btn with toggle true
         properties:
@@ -1640,6 +1685,9 @@
       - obj: "p0b5"
         properties:
           "text": "{{ states('sensor.hallway_temperature') }}"
+      - obj: "p0b10"
+        properties:
+          "text": "{{ states('sensor.time') }}"
       - obj: "p0b14"
         properties:
           "text": "{{ state_attr('weather.beech_house', 'temperature') }}"
@@ -1693,12 +1741,12 @@
 
       - obj: "p1b5" # switch, checkbox or btn with toggle true
         properties:
-          "val": '{{ 1 if is_state("light.unused", "on") else 0 }}'
-          "text": '{{ "Unused" if is_state("light.unused", "on") else "Unused" | e }}'
+          "val": '{{ 1 if is_state("light.panic", "on") else 0 }}'
+          "text": '{{ "PANIC" if is_state("light.panic", "on") else "PANIC" | e }}'
         event:
           "down":
             - service: homeassistant.toggle
-              entity_id: "light.unused"
+              entity_id: "light.panic"
               
       - obj: "p1b6" # switch, checkbox or btn with toggle true
         properties:
@@ -1931,9 +1979,13 @@
       - obj: "p0b5"
         properties:
           "text": "{{ states('sensor.hallway_temperature') }}"
+      - obj: "p0b10"
+        properties:
+          "text": "{{ states('sensor.time') }}"
       - obj: "p0b14"
         properties:
           "text": "{{ state_attr('weather.beech_house', 'temperature') }}"
+
 
       # - obj: "p0b21"
       #   properties:
@@ -2324,6 +2376,9 @@
       - obj: "p0b5"
         properties:
           "text": "{{ states('sensor.hallway_temperature') }}"
+      - obj: "p0b10"
+        properties:
+          "text": "{{ states('sensor.time') }}"
       - obj: "p0b14"
         properties:
           "text": "{{ state_attr('weather.beech_house', 'temperature') }}"
@@ -2338,7 +2393,7 @@
         properties:
           "text": "{{ state_attr('weather.beech_house', 'humidity') }}"
           
-# End Header
+      # End Header
 
       - obj: "p1b1" # switch, checkbox or btn with toggle true
         properties:
@@ -2639,6 +2694,9 @@
       - obj: "p0b5"
         properties:
           "text": "{{ states('sensor.velux_mbr_sensor_temperature') }}"
+      - obj: "p0b10"
+        properties:
+          "text": "{{ states('sensor.time') }}"
       - obj: "p0b14"
         properties:
           "text": "{{ state_attr('weather.beech_house', 'temperature') }}"
@@ -2692,12 +2750,13 @@
 
       - obj: "p1b5" # switch, checkbox or btn with toggle true
         properties:
-          "val": '{{ 1 if is_state("light.unused", "on") else 0 }}'
-          "text": '{{ "Unused" if is_state("light.unused", "on") else "Unused" | e }}'
+          "val": '{{ 1 if is_state("light.panic", "on") else 0 }}'
+          "text": '{{ "PANIC" if is_state("light.panic", "on") else "PANIC" | e }}'
         event:
           "down":
             - service: homeassistant.toggle
-              entity_id: "light.unused"
+              entity_id: "light.panic"
+
       - obj: "p1b6" # switch, checkbox or btn with toggle true
         properties:
           "val": '{{ 1 if is_state("light.mbr_light_27", "on") else 0 }}'
@@ -3081,6 +3140,9 @@
       - obj: "p0b5"
         properties:
           "text": "{{ states('sensor.hallway_temperature') }}"
+      - obj: "p0b10"
+        properties:
+          "text": "{{ states('sensor.time') }}"
       - obj: "p0b14"
         properties:
           "text": "{{ state_attr('weather.beech_house', 'temperature') }}"
@@ -3130,6 +3192,17 @@
             - service: homeassistant.toggle
               entity_id: "switch.flood_light"
 
+      - obj: "p1b5" # switch, checkbox or btn with toggle true
+        properties:
+          "val": '{{ 1 if is_state("light.panic", "on") else 0 }}'
+          "text": '{{ "PANIC" if is_state("light.panic", "on") else "PANIC" | e }}'
+        event:
+          "down":
+            - service: homeassistant.toggle
+              entity_id: "light.panic"
+            - service: homeassistant.toggle
+              entity_id: "switch.flood_light"
+                            
 # Beginning of Alarm Panel
       - obj: "p12b1"          # Alarm Arm Home
         event:
@@ -3352,6 +3425,9 @@
       - obj: "p0b5"
         properties:
           "text": "{{ states('sensor.hallway_temperature') }}"
+      - obj: "p0b10"
+        properties:
+          "text": "{{ states('sensor.time') }}"
       - obj: "p0b14"
         properties:
           "text": "{{ state_attr('weather.beech_house', 'temperature') }}"

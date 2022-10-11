@@ -22,6 +22,9 @@
       - obj: "p0b5"
         properties:
           "text": "{{ states('sensor.hallway_temperature') }}"
+      - obj: "p0b10"
+        properties:
+          "text": "{{ states('sensor.time') }}"
       - obj: "p0b14"
         properties:
           "text": "{{ state_attr('weather.beech_house', 'temperature') }}"
@@ -36,7 +39,7 @@
         properties:
           "text": "{{ state_attr('weather.beech_house', 'humidity') }}"
           
-# End Header
+      # End Header
 
       - obj: "p1b1" # switch, checkbox or btn with toggle true
         properties:
