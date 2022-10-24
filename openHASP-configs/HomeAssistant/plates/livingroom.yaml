@@ -52,31 +52,23 @@
               entity_id: "light.livingroom_light_12"
       - obj: "p1b2" # switch, checkbox or btn with toggle true
         properties:
-          "val": '{{ 1 if is_state("light.living_room_2", "on") else 0 }}'
-          "text": '{{ "\uE769 Fan Bulbs" if is_state("light.living_room_2", "on") else "\uE769 Fan Bulbs" | e }}'
-        event:
-          "down":
-            - service: homeassistant.toggle
-              entity_id: "light.living_room_2"
-      - obj: "p1b3" # switch, checkbox or btn with toggle true
-        properties:
-          "val": '{{ 1 if is_state("light.livingroom_light_27", "on") else 0 }}'
-          "text": '{{ "\uE6E8 Spots" if is_state("light.livingroom_light_27", "on") else "\uE335 Spots" | e }}'
-        event:
-          "down":
-            - service: homeassistant.toggle
-              entity_id: "light.livingroom_light_27"
-
-
-      - obj: "p1b4" # switch, checkbox or btn with toggle true
-        properties:
           "val": '{{ 1 if is_state("switch.paulas_lamp", "on") else 0 }}'
-          "text": '{{ "\uE6B5 Paulas\nLamp" if is_state("switch.paulas_lamp", "on") else "\uE6B5 Paulas\nLamp" | e }}'
+          "text": '{{ "Paulas Lamp" if is_state("switch.paulas_lamp", "on") else "Paulas Lamp" | e }}'
         event:
           "down":
             - service: homeassistant.toggle
               entity_id: "switch.paulas_lamp"
-      - obj: "p1b5" # switch, checkbox or btn with toggle true
+      - obj: "p1b3" # switch, checkbox or btn with toggle true
+        properties:
+          "val": '{{ 1 if is_state("light.living_room_spots", "on") else 0 }}'
+          "text": '{{ "Spots" if is_state("light.living_room_spots", "on") else "Spots" | e }}'
+        event:
+          "down":
+            - service: homeassistant.toggle
+              entity_id: "light.living_room_spots"
+
+
+      - obj: "p1b4" # switch, checkbox or btn with toggle true
         properties:
           "val": '{{ 1 if is_state("switch.living_room_tv", "on") else 0 }}'
           "text": '{{ "\uE502 TV" if is_state("switch.living_room_tv", "on") else "\uE502 TV" | e }}'
@@ -84,6 +76,14 @@
           "down":
             - service: homeassistant.toggle
               entity_id: "switch.living_room_tv"
+      - obj: "p1b5" # switch, checkbox or btn with toggle true
+        properties:
+          "val": '{{ 1 if is_state("light.livingroom_light_27", "on") else 0 }}'
+          "text": '{{ "Spot\nSwitch" if is_state("light.livingroom_light_27", "on") else "Spot\nSwitch" | e }}'
+        event:
+          "down":
+            - service: homeassistant.toggle
+              entity_id: "light.livingroom_light_27"
       - obj: "p1b6" # switch, checkbox or btn with toggle true
         properties:
           "val": '{{ 1 if is_state("light.livingroom_light_14", "on") else 0 }}'
@@ -92,6 +92,15 @@
           "down":
             - service: homeassistant.toggle
               entity_id: "light.livingroom_light_14"
+
+      - obj: "p1b9" # switch, checkbox or btn with toggle true
+        properties:
+          "val": '{{ 1 if is_state("light.living_room_fan", "on") else 0 }}'
+          "text": '{{ "Fan\nBulbs" if is_state("light.living_room_fan", "on") else "Fan\nBulbs" | e }}'
+        event:
+          "down":
+            - service: homeassistant.toggle
+              entity_id: "light.living_room_fan"
 
 
 # Page 2 - Hue Scenes Begin
