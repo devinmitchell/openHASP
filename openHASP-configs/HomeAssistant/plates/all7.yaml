@@ -29,15 +29,10 @@
         properties:
           "text": "{{ state_attr('weather.beech_house', 'temperature') }}"
 
-      # - obj: "p0b21"
-      #   properties:
-      #     "text": "{{ states('sensor.velux_mbr_sensor_co2') }}"
-      - obj: "p0b30"
-        properties: 
-          "text": "{{ states('sensor.hallway_humidity') }}"
-      - obj: "p0b31"
+      - obj: "p0b20"
         properties:
-          "text": "{{ state_attr('weather.beech_house', 'humidity') }}"
+          "text": "{{ states('sensor.solis_remaining_battery_capacity') }}"
+
 
 # End Header
 
@@ -332,15 +327,9 @@
         properties:
           "text": "{{ state_attr('weather.beech_house', 'temperature') }}"
 
-      # - obj: "p0b21"
-      #   properties:
-      #     "text": "{{ states('sensor.velux_mbr_sensor_co2') }}"
-      - obj: "p0b30"
-        properties: 
-          "text": "{{ states('sensor.downbath_humidity') }}"
-      - obj: "p0b31"
+      - obj: "p0b20"
         properties:
-          "text": "{{ state_attr('weather.beech_house', 'humidity') }}"
+          "text": "{{ states('sensor.solis_remaining_battery_capacity') }}"
 
 # End Header
 
@@ -657,15 +646,9 @@
         properties:
           "text": "{{ state_attr('weather.beech_house', 'temperature') }}"
 
-      # - obj: "p0b21"
-      #   properties:
-      #     "text": "{{ states('sensor.velux_mbr_sensor_co2') }}"
-      - obj: "p0b30"
-        properties: 
-          "text": "{{ states('sensor.hallway_humidity') }}"
-      - obj: "p0b31"
+      - obj: "p0b20"
         properties:
-          "text": "{{ state_attr('weather.beech_house', 'humidity') }}"
+          "text": "{{ states('sensor.solis_remaining_battery_capacity') }}"
           
 # End Header
 
@@ -952,15 +935,9 @@
         properties:
           "text": "{{ state_attr('weather.beech_house', 'temperature') }}"
 
-      # - obj: "p0b21"
-      #   properties:
-      #     "text": "{{ states('sensor.velux_mbr_sensor_co2') }}"
-      - obj: "p0b30"
-        properties: 
-          "text": "{{ states('sensor.mbr_ensuite_humidity') }}"
-      - obj: "p0b31"
+      - obj: "p0b20"
         properties:
-          "text": "{{ state_attr('weather.beech_house', 'humidity') }}"
+          "text": "{{ states('sensor.solis_remaining_battery_capacity') }}"
 
 # End Header
 
@@ -1369,15 +1346,9 @@
         properties:
           "text": "{{ state_attr('weather.beech_house', 'temperature') }}"
 
-      # - obj: "p0b21"
-      #   properties:
-      #     "text": "{{ states('sensor.velux_mbr_sensor_co2') }}"
-      - obj: "p0b30"
-        properties: 
-          "text": "{{ states('sensor.hallway_humidity') }}"
-      - obj: "p0b31"
+      - obj: "p0b20"
         properties:
-          "text": "{{ state_attr('weather.beech_house', 'humidity') }}"
+          "text": "{{ states('sensor.solis_remaining_battery_capacity') }}"
 
 # End Header
 
@@ -1692,15 +1663,9 @@
         properties:
           "text": "{{ state_attr('weather.beech_house', 'temperature') }}"
 
-      # - obj: "p0b21"
-      #   properties:
-      #     "text": "{{ states('sensor.velux_mbr_sensor_co2') }}"
-      - obj: "p0b30"
-        properties: 
-          "text": "{{ states('sensor.hallway_humidity') }}"
-      - obj: "p0b31"
+      - obj: "p0b20"
         properties:
-          "text": "{{ state_attr('weather.beech_house', 'humidity') }}"
+          "text": "{{ states('sensor.solis_remaining_battery_capacity') }}"
           
 # End Header
 
@@ -1986,16 +1951,9 @@
         properties:
           "text": "{{ state_attr('weather.beech_house', 'temperature') }}"
 
-
-      # - obj: "p0b21"
-      #   properties:
-      #     "text": "{{ states('sensor.velux_mbr_sensor_co2') }}"
-      - obj: "p0b30"
-        properties: 
-          "text": "{{ states('sensor.hallway_humidity') }}"
-      - obj: "p0b31"
+      - obj: "p0b20"
         properties:
-          "text": "{{ state_attr('weather.beech_house', 'humidity') }}"
+          "text": "{{ states('sensor.solis_remaining_battery_capacity') }}"
           
 # End Header
 
@@ -2413,15 +2371,9 @@
         properties:
           "text": "{{ state_attr('weather.beech_house', 'temperature') }}"
 
-      # - obj: "p0b21"
-      #   properties:
-      #     "text": "{{ states('sensor.velux_mbr_sensor_co2') }}"
-      - obj: "p0b30"
-        properties: 
-          "text": "{{ states('sensor.hallway_humidity') }}"
-      - obj: "p0b31"
+      - obj: "p0b20"
         properties:
-          "text": "{{ state_attr('weather.beech_house', 'humidity') }}"
+          "text": "{{ states('sensor.solis_remaining_battery_capacity') }}"
           
       # End Header
 
@@ -2731,15 +2683,9 @@
         properties:
           "text": "{{ state_attr('weather.beech_house', 'temperature') }}"
 
-      # - obj: "p0b21"
-      #   properties:
-      #     "text": "{{ states('sensor.velux_mbr_sensor_co2') }}"
-      - obj: "p0b30"
-        properties: 
-          "text": "{{ states('sensor.velux_mbr_sensor_humidity') }}"
-      - obj: "p0b31"
+      - obj: "p0b20"
         properties:
-          "text": "{{ state_attr('weather.beech_house', 'humidity') }}"
+          "text": "{{ states('sensor.solis_remaining_battery_capacity') }}"
 
 # End Header
 
@@ -3176,15 +3122,10 @@
       - obj: "p0b14"
         properties:
           "text": "{{ state_attr('weather.beech_house', 'temperature') }}"
-      # - obj: "p0b21"
-      #   properties:
-      #     "text": "{{ states('sensor.velux_mbr_sensor_co2') }}"
-      - obj: "p0b30"
-        properties: 
-          "text": "{{ states('sensor.hallway_humidity') }}"
-      - obj: "p0b31"
+
+      - obj: "p0b20"
         properties:
-          "text": "{{ state_attr('weather.beech_house', 'humidity') }}"
+          "text": "{{ states('sensor.solis_remaining_battery_capacity') }}"
 
 # End Header
 
@@ -3462,15 +3403,9 @@
         properties:
           "text": "{{ state_attr('weather.beech_house', 'temperature') }}"
 
-      # - obj: "p0b21"
-      #   properties:
-      #     "text": "{{ states('sensor.velux_mbr_sensor_co2') }}"
-      - obj: "p0b30"
-        properties: 
-          "text": "{{ states('sensor.hallway_humidity') }}"
-      - obj: "p0b31"
+      - obj: "p0b20"
         properties:
-          "text": "{{ state_attr('weather.beech_house', 'humidity') }}"
+          "text": "{{ states('sensor.solis_remaining_battery_capacity') }}"
           
 # End Header
 
