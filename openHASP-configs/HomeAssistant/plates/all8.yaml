@@ -31,7 +31,7 @@
 
       - obj: "p0b20"
         properties:
-          "text": "{{ states('sensor.solis_remaining_battery_capacity') }}"
+          "text": "{{ states('sensor.pylontech_soc') }}"
 
 
 # End Header
@@ -329,7 +329,7 @@
 
       - obj: "p0b20"
         properties:
-          "text": "{{ states('sensor.solis_remaining_battery_capacity') }}"
+          "text": "{{ states('sensor.pylontech_soc') }}"
 
 # End Header
 
@@ -648,7 +648,7 @@
 
       - obj: "p0b20"
         properties:
-          "text": "{{ states('sensor.solis_remaining_battery_capacity') }}"
+          "text": "{{ states('sensor.pylontech_soc') }}"
           
 # End Header
 
@@ -937,7 +937,7 @@
 
       - obj: "p0b20"
         properties:
-          "text": "{{ states('sensor.solis_remaining_battery_capacity') }}"
+          "text": "{{ states('sensor.pylontech_soc') }}"
 
 # End Header
 
@@ -1348,7 +1348,7 @@
 
       - obj: "p0b20"
         properties:
-          "text": "{{ states('sensor.solis_remaining_battery_capacity') }}"
+          "text": "{{ states('sensor.pylontech_soc') }}"
 
 # End Header
 
@@ -1665,7 +1665,7 @@
 
       - obj: "p0b20"
         properties:
-          "text": "{{ states('sensor.solis_remaining_battery_capacity') }}"
+          "text": "{{ states('sensor.pylontech_soc') }}"
           
 # End Header
 
@@ -1953,7 +1953,7 @@
 
       - obj: "p0b20"
         properties:
-          "text": "{{ states('sensor.solis_remaining_battery_capacity') }}"
+          "text": "{{ states('sensor.pylontech_soc') }}"
           
 # End Header
 
@@ -2373,7 +2373,7 @@
 
       - obj: "p0b20"
         properties:
-          "text": "{{ states('sensor.solis_remaining_battery_capacity') }}"
+          "text": "{{ states('sensor.pylontech_soc') }}"
           
       # End Header
 
@@ -2685,7 +2685,7 @@
 
       - obj: "p0b20"
         properties:
-          "text": "{{ states('sensor.solis_remaining_battery_capacity') }}"
+          "text": "{{ states('sensor.pylontech_soc') }}"
 
 # End Header
 
@@ -3125,7 +3125,7 @@
 
       - obj: "p0b20"
         properties:
-          "text": "{{ states('sensor.solis_remaining_battery_capacity') }}"
+          "text": "{{ states('sensor.pylontech_soc') }}"
 
 # End Header
 
@@ -3405,7 +3405,7 @@
 
       - obj: "p0b20"
         properties:
-          "text": "{{ states('sensor.solis_remaining_battery_capacity') }}"
+          "text": "{{ states('sensor.pylontech_soc') }}"
           
 # End Header
 
