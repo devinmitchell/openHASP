@@ -14,11 +14,11 @@
           "text": "{{ states('sensor.octopus_energy_previous_accumulative_cost') }}"
       - obj: "p0b7"
         properties:
-          "text": "{{ states('sensor.myenergi_harvi_13532093_power_ct_grid') }}"
+          "text": "{{ states('sensor.myenergi_zappi_ev1_power_ct_grid') }}"
       - obj: "p0b8"
         properties:
-          "text": "{% if 300 >= states('sensor.myenergi_harvi_13532093_power_ct_grid') |int %}\uE32A{% elif 3500 <= states('sensor.myenergi_harvi_13532093_power_ct_grid') |int %}\uE5F1{% else %}\uF40B{% endif %}"
-          "text_color": "{% if 500 >= states('sensor.myenergi_harvi_13532093_power_ct_grid') |int %}#00ff00{% elif 500 < states('sensor.myenergi_harvi_13532093_power_ct_grid') |int <= 1000 %}#ffff00{% elif 1000 < states('sensor.myenergi_harvi_13532093_power_ct_grid') |int <= 3500 %}#ff0000{% elif 3500 < states('sensor.myenergi_harvi_13532093_power_ct_grid') |int <= 20000 %}#00ff00{% else %}black{% endif %}"
+          "text": "{% if 300 >= states('sensor.myenergi_zappi_ev1_power_ct_grid') |int %}\uE32A{% elif 3500 <= states('sensor.myenergi_zappi_ev1_power_ct_grid') |int %}\uE5F1{% else %}\uF40B{% endif %}"
+          "text_color": "{% if 500 >= states('sensor.myenergi_zappi_ev1_power_ct_grid') |int %}#00ff00{% elif 500 < states('sensor.myenergi_zappi_ev1_power_ct_grid') |int <= 1000 %}#ffff00{% elif 1000 < states('sensor.myenergi_zappi_ev1_power_ct_grid') |int <= 3500 %}#ff0000{% elif 3500 < states('sensor.myenergi_zappi_ev1_power_ct_grid') |int <= 20000 %}#00ff00{% else %}black{% endif %}"
       - obj: "p0b5"
         properties:
           "text": "{{ states('sensor.hallway_temperature') }}"
