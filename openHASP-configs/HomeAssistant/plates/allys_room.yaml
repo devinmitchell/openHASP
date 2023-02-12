@@ -1,11 +1,11 @@
-  alastair1:
+  allys_room:
     objects:
 
 # Begin Header
 
       - obj: "p0b1"
         properties:
-          "text_color": "{% if -50 <= state_attr('openhasp.alastair1','rssi') |int %}#00ff00{% elif -51 > state_attr('openhasp.alastair1','rssi') |int >= -70 %}#ffff00{% elif -71 > state_attr('openhasp.alastair1','rssi') |int >= -80 %}#ff0000{% else %}black{% endif %}"
+          "text_color": "{% if -50 <= state_attr('openhasp.allys_room','rssi') |int %}#00ff00{% elif -51 > state_attr('openhasp.allys_room','rssi') |int >= -70 %}#ffff00{% elif -71 > state_attr('openhasp.allys_room','rssi') |int >= -80 %}#ff0000{% else %}black{% endif %}"
       - obj: "p0b2"
         properties:
           "text": "{{ states('sensor.monthly_energy_cost') }}"
@@ -32,35 +32,35 @@
       - obj: "p0b20"
         properties:
           "text": "{{ states('sensor.pylontech_soc') }}"
-          
+
+
 # End Header
 
       - obj: "p1b1" # switch, checkbox or btn with toggle true
         properties:
-          "val": '{{ 1 if is_state("light.alastair1_light_12", "on") else 0 }}'
-          "text": '{{ "\uE6E8 Relay 1" if is_state("light.alastair1_light_12", "on") else "\uE335 Relay 1" | e }}'
+          "val": '{{ 1 if is_state("light.allys_room_light_12", "on") else 0 }}'
+          "text": '{{ "Relay 1" if is_state("light.allys_room_light_12", "on") else "Relay 1" | e }}'
         event:
           "down":
             - service: homeassistant.toggle
-              entity_id: "light.alastair1_light_12"
+              entity_id: "light.allys_room_light_12"
       - obj: "p1b2" # switch, checkbox or btn with toggle true
         properties:
-          "val": '{{ 1 if is_state("light.alastair1_light_14", "on") else 0 }}'
-          "text": '{{ "\uE6E8 Relay 2" if is_state("light.alastair1_light_14", "on") else "\uE335 Relay 2" | e }}'
+          "val": '{{ 1 if is_state("light.allys_room_light_14", "on") else 0 }}'
+          "text": '{{ "Relay 2" if is_state("light.allys_room_light_14", "on") else "Relay 2" | e }}'
         event:
           "down":
             - service: homeassistant.toggle
-              entity_id: "light.alastair1_light_14"
+              entity_id: "light.allys_room_light_14"
 
       - obj: "p1b3" # switch, checkbox or btn with toggle true
         properties:
-          "val": '{{ 1 if is_state("switch.garden_lights", "on") else 0 }}'
-          "text": '{{ "\uE6E8 Relay 3" if is_state("switch.garden_lights", "on") else "\uE335 Relay 3" | e }}'
+          "val": '{{ 1 if is_state("light.downhall_light_14", "on") else 0 }}'
+          "text": '{{ "Relay 3" if is_state("light.downhall_light_14", "on") else "Relay 3" | e }}'
         event:
           "down":
             - service: homeassistant.toggle
-              entity_id: "switch.garden_lights"
-
+              entity_id: "light.downhall_light_14"
 
       - obj: "p1b4" # switch, checkbox or btn with toggle true
         properties:
@@ -89,6 +89,16 @@
             - service: homeassistant.toggle
               entity_id: "switch.unused"
 
+      - obj: "p1b9" # switch, checkbox or btn with toggle true
+        properties:
+          "val": '{{ 1 if is_state("switch.garden_lights", "on") else 0 }}'
+          "text": '{{ "Garden" if is_state("switch.garden_lights", "on") else "Garden" | e }}'
+        event:
+          "down":
+            - service: homeassistant.toggle
+              entity_id: "switch.garden_lights"
+
+
 # Beginning of Alarm Panel
       - obj: "p12b1"          # Alarm Arm Home
         event:
@@ -101,7 +111,6 @@
                 entity_id: "alarm_control_panel.alarm"
               data:
                 code: "1776"
-
 # End of Alarm Panel
 
 
@@ -192,7 +201,7 @@
           "changed":
             - service: openhasp.command
               target:
-                entity_id: openhasp.alastair1
+                entity_id: openhasp.allys_room
               data:
                 keyword: p11b26.text
                 parameters: >

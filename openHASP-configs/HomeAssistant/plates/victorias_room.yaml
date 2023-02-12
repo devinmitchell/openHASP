@@ -38,7 +38,7 @@
       - obj: "p1b1" # switch, checkbox or btn with toggle true
         properties:
           "val": '{{ 1 if is_state("light.victorias_room_light_12", "on") else 0 }}'
-          "text": '{{ "\uE6E8 Relay 1" if is_state("light.victorias_room_light_12", "on") else "\uE335 Relay 1" | e }}'
+          "text": '{{ "\uE210 Ceiling Fan" if is_state("light.victorias_room_light_12", "on") else "\uE210 Ceiling Fan" | e }}'
         event:
           "down":
             - service: homeassistant.toggle
@@ -46,7 +46,7 @@
       - obj: "p1b2" # switch, checkbox or btn with toggle true
         properties:
           "val": '{{ 1 if is_state("light.victorias_room_light_14", "on") else 0 }}'
-          "text": '{{ "\uE6E8 Relay 2" if is_state("light.victorias_room_light_14", "on") else "\uE335 Relay 2" | e }}'
+          "text": '{{ "\uE769 Fan Light" if is_state("light.victorias_room_light_14", "on") else "\uE769 Fan Light" | e }}'
         event:
           "down":
             - service: homeassistant.toggle
@@ -54,40 +54,40 @@
 
       - obj: "p1b3" # switch, checkbox or btn with toggle true
         properties:
-          "val": '{{ 1 if is_state("switch.garden_lights", "on") else 0 }}'
-          "text": '{{ "\uE6E8 Relay 3" if is_state("switch.garden_lights", "on") else "\uE335 Relay 3" | e }}'
+          "val": '{{ 1 if is_state("light.upstairs_hallway_spots", "on") else 0 }}'
+          "text": '{{ "\uE6E8 Landing" if is_state("light.upstairs_hallway_spots", "on") else "\uE335 Landing" | e }}'
         event:
           "down":
             - service: homeassistant.toggle
-              entity_id: "switch.garden_lights"
+              entity_id: "light.upstairs_hallway_spots"
 
 
       - obj: "p1b4" # switch, checkbox or btn with toggle true
         properties:
-          "val": '{{ 1 if is_state("switch.unused", "on") else 0 }}'
-          "text": '{{ "Unused" if is_state("switch.unused", "on") else "Unused" | e }}'
+          "val": '{{ 1 if is_state("light.hue_ambiance_candle_1", "on") else 0 }}'
+          "text": '{{ "\uE95F Desk" if is_state("light.hue_ambiance_candle_1", "on") else "\uE95F Desk" | e }}'
         event:
           "down":
             - service: homeassistant.toggle
-              entity_id: "switch.unused"
+              entity_id: "light.hue_ambiance_candle_1"
 
       - obj: "p1b5" # switch, checkbox or btn with toggle true
         properties:
-          "val": '{{ 1 if is_state("light.panic", "on") else 0 }}'
-          "text": '{{ "PANIC" if is_state("light.panic", "on") else "PANIC" | e }}'
+          "val": '{{ 1 if is_state("light.hue_white_lamp_1", "on") else 0 }}'
+          "text": '{{ "\uE2E3 Bedside" if is_state("light.hue_white_lamp_1", "on") else "\uE2E3 Bedside" | e }}'
         event:
           "down":
             - service: homeassistant.toggle
-              entity_id: "light.panic"
+              entity_id: "light.hue_white_lamp_1"
 
       - obj: "p1b6" # switch, checkbox or btn with toggle true
         properties:
-          "val": '{{ 1 if is_state("switch.unused", "on") else 0 }}'
-          "text": '{{ "Unused" if is_state("switch.unused", "on") else "Unused" | e }}'
+          "val": '{{ 1 if is_state("switch.victorias_leds", "on") else 0 }}'
+          "text": '{{ "\uF2BA LEDs" if is_state("switch.victorias_leds", "on") else "\uF2BA LEDs" | e }}'
         event:
           "down":
             - service: homeassistant.toggle
-              entity_id: "switch.unused"
+              entity_id: "switch.victorias_leds"
 
 # Beginning of Alarm Panel
       - obj: "p12b1"          # Alarm Arm Home

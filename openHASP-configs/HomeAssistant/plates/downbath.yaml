@@ -46,21 +46,21 @@
 
       - obj: "p1b2" # switch, checkbox or btn with toggle true
         properties:
+          "val": '{{ 1 if is_state("light.downbath_light_14", "on") else 0 }}'
+          "text": '{{ "\uE210 Extractor" if is_state("light.downbath_light_14", "on") else "\uE210 Extractor" | e }}'
+        event:
+          "down":
+            - service: homeassistant.toggle
+              entity_id: "light.downbath_light_14"
+              
+      - obj: "p1b3" # switch, checkbox or btn with toggle true
+        properties:
           "val": '{{ 1 if is_state("light.downhall_light_14", "on") else 0 }}'
           "text": '{{ "\uE6E8 Hallway" if is_state("light.downhall_light_14", "on") else "\uE335 Hallway" | e }}'
         event:
           "down":
             - service: homeassistant.toggle
               entity_id: "light.downhall_light_14"
-              
-      - obj: "p1b3" # switch, checkbox or btn with toggle true
-        properties:
-          "val": '{{ 1 if is_state("switch.unused", "on") else 0 }}'
-          "text": '{{ "Unused" if is_state("switch.unused", "on") else "Unused" | e }}'
-        event:
-          "down":
-            - service: homeassistant.toggle
-              entity_id: "switch.unused"
 
 
       - obj: "p1b4" # switch, checkbox or btn with toggle true
@@ -83,12 +83,12 @@
 
       - obj: "p1b6" # switch, checkbox or btn with toggle true
         properties:
-          "val": '{{ 1 if is_state("light.downbath_light_14", "on") else 0 }}'
-          "text": '{{ "\uE425 Mirror" if is_state("light.downbath_light_14", "on") else "\uE425 Mirror" | e }}'
+          "val": '{{ 1 if is_state("light.downbath_light_27", "on") else 0 }}'
+          "text": '{{ "\uE425 Mirror" if is_state("light.downbath_light_27", "on") else "\uE425 Mirror" | e }}'
         event:
           "down":
             - service: homeassistant.toggle
-              entity_id: "light.downbath_light_14"
+              entity_id: "light.downbath_light_27"
 
 
       - obj: "p1b7"
