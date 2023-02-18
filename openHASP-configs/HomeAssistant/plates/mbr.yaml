@@ -37,28 +37,28 @@
 
       - obj: "p1b1" # switch, checkbox or btn with toggle true
         properties:
-          "val": '{{ 1 if is_state("light.mbr_light_12", "on") else 0 }}'
-          "text": '{{ "\uE210 Fan" if is_state("light.mbr_light_12", "on") else "\uE210 Fan" | e }}'
-        event:
-          "down":
-            - service: homeassistant.toggle
-              entity_id: "light.mbr_light_12"
-      - obj: "p1b2" # switch, checkbox or btn with toggle true
-        properties:
-          "val": '{{ 1 if is_state("light.mbr_light_14", "on") else 0 }}'
-          "text": '{{ "\uE769 Fan Lights" if is_state("light.mbr_light_14", "on") else "\uE769 Fan Lights" | e }}'
-        event:
-          "down":
-            - service: homeassistant.toggle
-              entity_id: "light.mbr_light_14"
-      - obj: "p1b3" # switch, checkbox or btn with toggle true
-        properties:
           "val": '{{ 1 if is_state("light.mbr_spots", "on") else 0 }}'
           "text": '{{ "\uE6E8 Spots" if is_state("light.mbr_spots", "on") else "\uE6E8 Spots" | e }}'
         event:
           "down":
             - service: homeassistant.toggle
               entity_id: "light.mbr_spots"
+      - obj: "p1b2" # switch, checkbox or btn with toggle true
+        properties:
+          "val": '{{ 1 if is_state("light.mbr_lamps", "on") else 0 }}'
+          "text": '{{ "\uE6B5 Lamps" if is_state("light.mbr_lamps", "on") else "\uE6B5 Lamps" | e }}'
+        event:
+          "down":
+            - service: homeassistant.toggle
+              entity_id: "light.mbr_lamps"
+      - obj: "p1b3" # switch, checkbox or btn with toggle true
+        properties:
+          "val": '{{ 1 if is_state("fan.master_bedroom_fan", "on") else 0 }}'
+          "text": '{{ "\uE210 Fan" if is_state("fan.master_bedroom_fan", "on") else "\uE210 Fan" | e }}'
+        event:
+          "down":
+            - service: homeassistant.toggle
+              entity_id: "fan.master_bedroom_fan"
           
 
       - obj: "p1b4" # switch, checkbox or btn with toggle true
@@ -72,12 +72,12 @@
 
       - obj: "p1b5" # switch, checkbox or btn with toggle true
         properties:
-          "val": '{{ 1 if is_state("light.panic", "on") else 0 }}'
-          "text": '{{ "PANIC" if is_state("light.panic", "on") else "PANIC" | e }}'
+          "val": '{{ 1 if is_state("light.mbr_light_12", "on") else 0 }}'
+          "text": '{{ "\uE210 Fan\nSwitch" if is_state("light.mbr_light_12", "on") else "\uE210 Fan\nSwitch" | e }}'
         event:
           "down":
             - service: homeassistant.toggle
-              entity_id: "light.panic"
+              entity_id: "light.mbr_light_12"
 
       - obj: "p1b6" # switch, checkbox or btn with toggle true
         properties:
@@ -87,17 +87,6 @@
           "down":
             - service: homeassistant.toggle
               entity_id: "light.mbr_light_27"
-
-
-
-      - obj: "p1b9" # switch, checkbox or btn with toggle true
-        properties:
-          "val": '{{ 1 if is_state("light.mbr_lamps", "on") else 0 }}'
-          "text": '{{ "\uE6B5 Lamps" if is_state("light.mbr_lamps", "on") else "\uE6B5 Lamps" | e }}'
-        event:
-          "down":
-            - service: homeassistant.toggle
-              entity_id: "light.mbr_lamps"
               
 # Beginning of Alarm Panel
       - obj: "p12b1"          # Alarm Arm Home
