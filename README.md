@@ -1,6 +1,6 @@
 # openHASP
 
-Just a personal collection of notes and configs used on our 13 Lanbon L8s in the house.
+Just a personal collection of notes and configs used on our 13 Lanbon L8s around the house.
 
 Here's an example of how each light switch looks like:
 
