@@ -39,7 +39,7 @@
       - obj: "p1b1" # switch, checkbox or btn with toggle true
         properties:
           "val": '{{ 1 if is_state("light.allys_room_light_12", "on") else 0 }}'
-          "text": '{{ "Relay 1" if is_state("light.allys_room_light_12", "on") else "Relay 1" | e }}'
+          "text": '{{ "\uE210 Ceiling Fan" if is_state("light.allys_room_light_12", "on") else "\uE210 Ceiling Fan" | e }}'
         event:
           "down":
             - service: homeassistant.toggle
@@ -47,7 +47,7 @@
       - obj: "p1b2" # switch, checkbox or btn with toggle true
         properties:
           "val": '{{ 1 if is_state("light.allys_room_light_14", "on") else 0 }}'
-          "text": '{{ "Relay 2" if is_state("light.allys_room_light_14", "on") else "Relay 2" | e }}'
+          "text": '{{ "\uE769 Fan Light" if is_state("light.allys_room_light_14", "on") else "\uE769 Fan Light" | e }}'
         event:
           "down":
             - service: homeassistant.toggle
@@ -55,12 +55,12 @@
 
       - obj: "p1b3" # switch, checkbox or btn with toggle true
         properties:
-          "val": '{{ 1 if is_state("light.downhall_light_14", "on") else 0 }}'
-          "text": '{{ "Relay 3" if is_state("light.downhall_light_14", "on") else "Relay 3" | e }}'
+          "val": '{{ 1 if is_state("switch.alastairs_bedroom_leds", "on") else 0 }}'
+          "text": '{{ "LEDs" if is_state("switch.alastairs_bedroom_leds", "on") else "LEDs" | e }}'
         event:
           "down":
             - service: homeassistant.toggle
-              entity_id: "light.downhall_light_14"
+              entity_id: "switch.alastairs_bedroom_leds"
 
       - obj: "p1b4" # switch, checkbox or btn with toggle true
         properties:
@@ -89,15 +89,109 @@
             - service: homeassistant.toggle
               entity_id: "switch.unused"
 
-      - obj: "p1b9" # switch, checkbox or btn with toggle true
+
+# Page 2 - Hue Scenes Begin
+# Buttons 1-3
+      - obj: "p2b1" # Concentrate
         properties:
-          "val": '{{ 1 if is_state("switch.garden_lights", "on") else 0 }}'
-          "text": '{{ "Garden" if is_state("switch.garden_lights", "on") else "Garden" | e }}'
+          "val": '{{ 1 if is_state("scene.alastairs_room_concentrate", "on") else 0 }}'
+          "text_font": '1'
+          "text": '{{ "Concntrte" if is_state("scene.alastairs_room_concentrate", "on") else "Concntrte" | e }}'
         event:
           "down":
-            - service: homeassistant.toggle
-              entity_id: "switch.garden_lights"
+            - service: scene.turn_on
+              entity_id: "scene.alastairs_room_concentrate"
+      - obj: "p2b2" # Spring Blossom
+        properties:
+          "val": '{{ 1 if is_state("scene.alastairs_room_spring_blossom", "on") else 0 }}'
+          "text_font": '1'
+          "text": '{{ "Spring\nBlossom" if is_state("scene.alastairs_room_spring_blossom", "on") else "Spring\nBlossom" | e }}'
+        event:
+          "down":
+            - service: scene.turn_on
+              entity_id: "scene.alastairs_room_spring_blossom"
+      - obj: "p2b3" # Tropical Twilight
+        properties:
+          "val": '{{ 1 if is_state("scene.alastairs_room_tropical_twilight", "on") else 0 }}'
+          "text_font": '1'
+          "text": '{{ "Tropical\nTwilight" if is_state("scene.alastairs_room_tropical_twilight", "on") else "Tropical\nTwilight" | e }}'
+        event:
+          "down":
+            - service: scene.turn_on
+              entity_id: "scene.alastairs_room_tropical_twilight"
 
+# Buttons 4-6
+      - obj: "p2b4" # Arctic Aurora
+        properties:
+          "val": '{{ 1 if is_state("scene.alastairs_room_arctic_aurora", "on") else 0 }}'
+          "text_font": '1'
+          "text": '{{ "Arctic\nAurora" if is_state("scene.alastairs_room_arctic_aurora", "on") else "Arctic\nAurora" | e }}'
+        event:
+          "down":
+            - service: scene.turn_on
+              entity_id: "scene.alastairs_room_arctic_aurora"
+      - obj: "p2b5" # Blue Planet
+        properties:
+          "val": '{{ 1 if is_state("scene.alastairs_room_blue_planet", "on") else 0 }}'
+          "text_font": '1'
+          "text": '{{ "Blue\nPlanet" if is_state("scene.alastairs_room_blue_planet", "on") else "Blue\nPlanet" | e }}'
+        event:
+          "down":
+            - service: scene.turn_on
+              entity_id: "scene.alastairs_room_blue_planet"
+      - obj: "p2b6" # Crocus
+        properties:
+          "val": '{{ 1 if is_state("scene.alastairs_room_crocus", "on") else 0 }}'
+          "text_font": '1'
+          "text": '{{ "Forest\nAdventure" if is_state("scene.alastairs_room_forest_adventure", "on") else "Forest\nAdventure" | e }}'
+        event:
+          "down":
+            - service: scene.turn_on
+              entity_id: "scene.alastairs_room_crocus"
+# Buttons 7-9
+      - obj: "p2b7" # Nebula
+        properties:
+          "val": '{{ 1 if is_state("scene.alastairs_room_nebula", "on") else 0 }}'
+          "text_font": '1'
+          "text": '{{ "Nebula" if is_state("scene.alastairs_room_nebula", "on") else "Nebula" | e }}'
+        event:
+          "down":
+            - service: scene.turn_on
+              entity_id: "scene.alastairs_room_nebula"
+      - obj: "p2b8" # Ocean\nDawn
+        properties:
+          "val": '{{ 1 if is_state("scene.alastairs_room_ocean_dawn", "on") else 0 }}'
+          "text_font": '1'
+          "text": '{{ "Ocean\nDawn" if is_state("scene.alastairs_room_ocean_dawn", "on") else "Ocean\nDawn" | e }}'
+        event:
+          "down":
+            - service: scene.turn_on
+              entity_id: "scene.alastairs_room_ocean_dawn"
+      - obj: "p2b9" # Painted Sky
+        properties:
+          "val": '{{ 1 if is_state("scene.alastairs_room_painted_sky", "on") else 0 }}'
+          "text_font": '1'
+          "text": '{{ "Painted\nSky" if is_state("scene.alastairs_room_painted_sky", "on") else "Painted\nSky" | e }}'
+        event:
+          "down":
+            - service: scene.turn_on
+              entity_id: "scene.alastairs_room_painted_sky"
+
+      - obj: "p2b10" # Light brightness
+        properties:
+          "val": "{{ state_attr('light.alastairs_room_2', 'brightness') if state_attr('light.alastairs_room_2', 'brightness') != None else 0 }}"
+        event:
+          "changed":
+            - service: light.turn_on
+              data:
+                entity_id: light.alastairs_room_2
+                brightness:  "{{ val }}"
+          "up":
+            - service: light.turn_on
+              data:
+                entity_id: light.alastairs_room_2
+                brightness:  "{{ val }}"
+                
 
 # Beginning of Alarm Panel
       - obj: "p12b1"          # Alarm Arm Home
