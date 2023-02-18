@@ -2,7 +2,7 @@
 
 Just a personal collection of notes and configs used on our 13 Lanbon L8s around the house.
 
-Here's an example of how each light switch looks like:
+Here's an example of what each light switch looks like:
 
 Top row: Temp inside, Time, Temp outside
 
