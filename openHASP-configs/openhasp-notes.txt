@@ -1,14 +1,19 @@
+
+
 #esptool.py --port /dev/tty.usbserial-0001 --baud 921600 --before default_reset --after hard_reset write_flash --flash_mode dio --flash_freq 40m --flash_size detect 0x1000 bootloader_dio_40m.bin 0x8000 partitions.bin 0xe000 boot_app0.bin 0x10000 lanbon_l8_ota_v0.6.2.bin
 
-esptool.py --baud 115200 --port /dev/tty.usbserial-0001 read_flash 0x0 0x800000 lanbon_l8_full_8MB_v0.6.3_497f611.bin
-esptool.py --baud 921600 --port /dev/tty.usbserial-0001 read_flash 0x0 0x800000 lanbon_l8_full_8MB_v0.6.3_497f611.bin
+Taking a backup:
+Normal:
+esptool.py --baud 115200 --port /dev/tty.usbserial-0001 read_flash 0x0 0x800000 lanbon_backup1_8M.bin
+Fast (data loss possible):
+esptool.py --baud 921600 --port /dev/tty.usbserial-0001 read_flash 0x0 0x800000 lanbon_backup1_8M.bin
 
 
 esptool.py --port /dev/tty.usbserial-0001 --baud 921600 flash_id
 unplug
 esptool.py --port /dev/tty.usbserial-0001 --baud 921600 erase_flash
 unplug
-esptool.py --port /dev/tty.usbserial-0001 --baud 921600 write_flash 0x0 lanbon_l8_full_8MB_v0.6.3.bin
+esptool.py --port /dev/tty.usbserial-0001 --baud 921600 write_flash 0x0 lanbon_l8_full_8MB_v0.6.3_497f611.bin
 unplug and remove ground loop
 minicom -D /dev/tty.usbserial-0001
 
@@ -25,7 +30,7 @@ Reboot
 
 CONFIGURE HOME ASSISTANT HERE
 from Home Assistant: Config -> Deevices -> Mosquitto Config and publish the following packet/payload:
-hasp/alastairs_room/config/gpio
+hasp/allys_room/config/gpio
 {"config":[197658,263456,329249,655628,655886,656155,0,0]}
 
 reboot lanbon 
