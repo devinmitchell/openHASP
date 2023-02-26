@@ -32,6 +32,10 @@
       - obj: "p0b20"
         properties:
           "text": "{{ states('sensor.pylontech_soc') }}"
+      - obj: "p0b22"
+        properties:
+          "text": "{% if 90 <= states('sensor.pylontech_soc') |int %}\uF2A3{% elif 50 <= states('sensor.pylontech_soc') |int %}\uF2A2{% elif 20 <= states('sensor.pylontech_soc') |int %}\uF2A1{% else %}\uE08E{% endif %}"
+          "text_color": "{% if 70 <= states('sensor.pylontech_soc') |int %}#00ff00{% elif 30 <= states('sensor.pylontech_soc') |int %}#ffff00{% elif 10 <= states('sensor.pylontech_soc') |int %}#ff0000{% else %}black{% endif %}"
 
 # End Header
 
