@@ -8,6 +8,7 @@ esptool.py --baud 115200 --port /dev/tty.usbserial-0001 read_flash 0x0 0x800000 
 Fast (data loss possible):
 esptool.py --baud 921600 --port /dev/tty.usbserial-0001 read_flash 0x0 0x800000 lanbon_backup1_8M.bin
 
+460800
 
 esptool.py --port /dev/tty.usbserial-0001 --baud 921600 flash_id
 unplug
