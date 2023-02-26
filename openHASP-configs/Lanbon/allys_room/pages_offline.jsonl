@@ -9,5 +9,3 @@
 {"page":0,"id":12,"obj":"btn","action":"back","x":80,"y":290,"w":80,"h":32,"bg_color":"#2C3E50","text":"\uE2DC","text_color":"#FFFFFF","radius":0,"border_side":0,"text_font":22}
 {"page":0,"id":13,"obj":"btn","action":"next","x":161,"y":290,"w":79,"h":32,"bg_color":"#2C3E50","text":"\uE142","text_color":"#FFFFFF","radius":0,"border_side":0,"text_font":28}
 {"page":0,"id":9,"obj":"obj","swipe":1,"x":0,"y":0,"h":50,"w":240,"opacity":0,"comment":"swipe-area-at-top"}
-
-// Comments in this file will cause ALL lines below it to be ignored by the Lanbon.
