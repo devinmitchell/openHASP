@@ -32,11 +32,53 @@
       - obj: "p0b20"
         properties:
           "text": "{{ states('sensor.pylontech_soc') }}"
+          "text_color": >
+            {% if is_state('sensor.pylontech1_basest', 'Charge') %}
+            {{ "#00ff00" }}
+            {% else %}
+            {{ "#ffffff" }}
+            {% endif %}
+      - obj: "p0b21"
+        properties:
+          "text": "%"
+          "text_color": >
+            {% if is_state('sensor.pylontech1_basest', 'Charge') %}
+            {{ "#00ff00" }}
+            {% else %}
+            {{ "#ffffff" }}
+            {% endif %}
+
       - obj: "p0b22"
         properties:
-          "text": "{% if 75 <= states('sensor.pylontech_soc') |int %}\uF2A3{% elif 50 <= states('sensor.pylontech_soc') |int %}\uF2A2{% elif 25 <= states('sensor.pylontech_soc') |int %}\uF2A1{% else %}\uE08E{% endif %}"
-          "text_color": "{% if 50 <= states('sensor.pylontech_soc') |int %}#00ff00{% elif 20 <= states('sensor.pylontech_soc') |int %}#ffff00{% elif 10 <= states('sensor.pylontech_soc') |int %}#ff0000{% else %}black{% endif %}"
-
+          "text": >
+            {% if 75 <= states('sensor.pylontech_soc') |int %}
+            {{ "\uF2A3" }}
+            {% elif 50 <= states('sensor.pylontech_soc') |int %}
+            {{ "\uF2A2" }}
+            {% elif 25 <= states('sensor.pylontech_soc') |int %}
+            {{ "\uF2A1" }}
+            {% else %}
+            {{ "\uE08E" }}
+            {% endif %}
+            {% if is_state('sensor.pylontech1_basest', 'Charge') %}
+            {{ "\uF40B" }}
+            {% endif %}
+          "text_color": >
+            {% if is_state('sensor.pylontech1_basest', 'Charge') %}
+            {{ "#ffffff" }}
+            {% endif %}
+            {% if 50 <= states('sensor.pylontech_soc') |int %}
+            {{ "#00ff00" }}
+            {% elif 20 <= states('sensor.pylontech_soc') |int %}
+            {{ "#ffff00" }}
+            {% elif 10 <= states('sensor.pylontech_soc') |int %}
+            {{ "#ff0000" }}
+            {% elif is_state('sensor.pylontech1_basest', 'Charge') %}
+            {{ "#ffffff" }}
+            {% else %}
+            {{ "#000000" }}
+            {% endif %}
+            
 # End Header
 
       - obj: "p1b1" # switch, checkbox or btn with toggle true
