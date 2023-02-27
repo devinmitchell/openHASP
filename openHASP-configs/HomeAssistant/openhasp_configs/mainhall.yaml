@@ -64,19 +64,17 @@
             {{ "\uF40B" }}
             {% endif %}
           "text_color": >
-            {% if is_state('sensor.pylontech1_basest', 'Charge') %}
-            {{ "#ffffff" }}
-            {% endif %}
             {% if 50 <= states('sensor.pylontech_soc') |int %}
             {{ "#00ff00" }}
             {% elif 20 <= states('sensor.pylontech_soc') |int %}
             {{ "#ffff00" }}
             {% elif 10 <= states('sensor.pylontech_soc') |int %}
             {{ "#ff0000" }}
-            {% elif is_state('sensor.pylontech1_basest', 'Charge') %}
-            {{ "#ffffff" }}
             {% else %}
             {{ "#000000" }}
+            {% endif %}
+            {% if is_state('sensor.pylontech1_basest', 'Charge') %}
+            {{ "#00ff00" }}
             {% endif %}
 
       # End Header
