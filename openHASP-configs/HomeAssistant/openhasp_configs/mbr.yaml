@@ -101,17 +101,16 @@
         event:
           "down":
             - service: homeassistant.toggle
-              entity_id: "fan.master_bedroom_fan"
-          
+              entity_id: "fan.master_bedroom_fan"  
 
       - obj: "p1b4" # switch, checkbox or btn with toggle true
         properties:
-          "val": '{{ 1 if is_state("switch.master_bedroom_tv", "on") else 0 }}'
-          "text": '{{ "\uE502 TV" if is_state("switch.master_bedroom_tv", "on") else "\uE502 TV" | e }}'
+          "val": '{{ 1 if is_state("light.all_lights", "on") else 0 }}'
+          "text": '{{ "Anything" if is_state("light.all_lights", "on") else "Everything" | e }}'
         event:
           "down":
             - service: homeassistant.toggle
-              entity_id: "switch.master_bedroom_tv"
+              entity_id: "light.all_lights"
 
       - obj: "p1b5" # switch, checkbox or btn with toggle true
         properties:

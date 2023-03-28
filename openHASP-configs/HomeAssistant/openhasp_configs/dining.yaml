@@ -106,12 +106,12 @@
 
       - obj: "p1b4" # switch, checkbox or btn with toggle true
         properties:
-          "val": '{{ 1 if is_state("switch.unused", "on") else 0 }}'
-          "text": '{{ "Unused" if is_state("switch.unused", "on") else "Unused" | e }}'
+          "val": '{{ 1 if is_state("light.all_lights", "on") else 0 }}'
+          "text": '{{ "Anything" if is_state("light.all_lights", "on") else "Everything" | e }}'
         event:
           "down":
             - service: homeassistant.toggle
-              entity_id: "switch.unused"
+              entity_id: "light.all_lights"
 
       - obj: "p1b5" # switch, checkbox or btn with toggle true
         properties:

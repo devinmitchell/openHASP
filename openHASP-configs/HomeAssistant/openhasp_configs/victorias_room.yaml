@@ -97,22 +97,21 @@
 
       - obj: "p1b3" # switch, checkbox or btn with toggle true
         properties:
-          "val": '{{ 1 if is_state("light.upstairs_hallway_spots", "on") else 0 }}'
-          "text": '{{ "\uE6E8 Landing" if is_state("light.upstairs_hallway_spots", "on") else "\uE335 Landing" | e }}'
-        event:
-          "down":
-            - service: homeassistant.toggle
-              entity_id: "light.upstairs_hallway_spots"
-
-
-      - obj: "p1b4" # switch, checkbox or btn with toggle true
-        properties:
           "val": '{{ 1 if is_state("light.hue_ambiance_candle_1", "on") else 0 }}'
           "text": '{{ "\uE95F Desk" if is_state("light.hue_ambiance_candle_1", "on") else "\uE95F Desk" | e }}'
         event:
           "down":
             - service: homeassistant.toggle
               entity_id: "light.hue_ambiance_candle_1"
+
+      - obj: "p1b4" # switch, checkbox or btn with toggle true
+        properties:
+          "val": '{{ 1 if is_state("light.all_lights", "on") else 0 }}'
+          "text": '{{ "Anything" if is_state("light.all_lights", "on") else "Everything" | e }}'
+        event:
+          "down":
+            - service: homeassistant.toggle
+              entity_id: "light.all_lights"
 
       - obj: "p1b5" # switch, checkbox or btn with toggle true
         properties:
