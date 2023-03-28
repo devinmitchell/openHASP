@@ -103,8 +103,16 @@
             - service: homeassistant.toggle
               entity_id: "light.landing_fan_lights"
 
-
       - obj: "p1b4" # switch, checkbox or btn with toggle true
+        properties:
+          "val": '{{ 1 if is_state("light.all_lights", "on") else 0 }}'
+          "text": '{{ "Anything" if is_state("light.all_lights", "on") else "Everything" | e }}'
+        event:
+          "down":
+            - service: homeassistant.toggle
+              entity_id: "light.all_lights"
+
+      - obj: "p1b5" # switch, checkbox or btn with toggle true
         properties:
           "val": '{{ 1 if is_state("switch.office_non_ups_devices", "on") else 0 }}'
           "text": '{{ "Non-UPS\nDevices" if is_state("switch.office_non_ups_devices", "on") else "Non-UPS\nDevices" | e }}'
@@ -112,14 +120,7 @@
           "down":
             - service: homeassistant.toggle
               entity_id: "switch.office_non_ups_devices"
-      - obj: "p1b5" # switch, checkbox or btn with toggle true
-        properties:
-          "val": '{{ 1 if is_state("switch.shelly_office_fireplace", "on") else 0 }}'
-          "text": '{{ "Fireplace" if is_state("switch.shelly_office_fireplace", "on") else "Fireplace" | e }}'
-        event:
-          "down":
-            - service: homeassistant.toggle
-              entity_id: "switch.shelly_office_fireplace"
+
       - obj: "p1b6" # switch, checkbox or btn with toggle true
         properties:
           "val": '{{ 1 if is_state("light.mainhall_light_14", "on") else 0 }}'
@@ -128,7 +129,6 @@
           "down":
             - service: homeassistant.toggle
               entity_id: "light.mainhall_light_14"
-
 
       - obj: "p1b7" # switch, checkbox or btn with toggle true
         properties:

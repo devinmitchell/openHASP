@@ -105,6 +105,15 @@
 
       - obj: "p1b4" # switch, checkbox or btn with toggle true
         properties:
+          "val": '{{ 1 if is_state("light.all_lights", "on") else 0 }}'
+          "text": '{{ "Anything" if is_state("light.all_lights", "on") else "Everything" | e }}'
+        event:
+          "down":
+            - service: homeassistant.toggle
+              entity_id: "light.all_lights"
+
+      - obj: "p1b5" # switch, checkbox or btn with toggle true
+        properties:
           "val": '{{ 1 if is_state("switch.flood_light", "on") else 0 }}'
           "text": '{{ "\uE5A8 Flood" if is_state("switch.flood_light", "on") else "\uE5A8 Flood" | e }}'
         event:
@@ -112,16 +121,6 @@
             - service: homeassistant.toggle
               entity_id: "switch.flood_light"
 
-      - obj: "p1b5" # switch, checkbox or btn with toggle true
-        properties:
-          "val": '{{ 1 if is_state("light.Unused", "on") else 0 }}'
-          "text": '{{ "Unused" if is_state("light.Unused", "on") else "Unused" | e }}'
-        event:
-          "down":
-            - service: homeassistant.toggle
-              entity_id: "light.Unused"
-            - service: homeassistant.toggle
-              entity_id: "switch.flood_light"
                             
 # Beginning of Alarm Panel
       - obj: "p12b1"          # Alarm Arm Home

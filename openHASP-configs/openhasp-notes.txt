@@ -31,7 +31,7 @@ Reboot
 
 CONFIGURE HOME ASSISTANT HERE
 from Home Assistant: Config -> Deevices -> Mosquitto Config and publish the following packet/payload:
-hasp/allys_room/config/gpio
+hasp/allys_office/config/gpio
 {"config":[197658,263456,329249,655628,655886,656155,0,0]}
 
 reboot lanbon 

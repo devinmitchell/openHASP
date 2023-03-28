@@ -2,7 +2,7 @@
 {"page":1,"id":4,"obj":"label","x":0,"y":5,"h":30,"w":240,"text":"Connecting...","text_color":"white","align":1,"bg_color":"#2C3E50"}
 
 {"page":1,"id":1,"obj":"btn","x":10,"y":40,"w":220,"h":60,"toggle":true,"text":"\uE335 Spots","text_font":32,"align":1,"groupid":1}
-{"page":1,"id":2,"obj":"btn","x":10,"y":120,"w":220,"h":60,"toggle":true,"text":"\uE335 LEDs","text_font":32,"align":1,"groupid":2}
+{"page":1,"id":2,"obj":"btn","x":10,"y":120,"w":220,"h":60,"toggle":true,"text":"\uE335 LEDs","text_font":32,"align":1,"groupid":3}
 
 {"page":0,"id":11,"obj":"btn","action":"prev","x":0,"y":290,"w":79,"h":32,"bg_color":"#2C3E50","text":"\uE141","text_color":"#FFFFFF","radius":0,"border_side":0,"text_font":28}
 {"page":0,"id":12,"obj":"btn","action":"back","x":80,"y":290,"w":80,"h":32,"bg_color":"#2C3E50","text":"\uE2DC","text_color":"#FFFFFF","radius":0,"border_side":0,"text_font":22}

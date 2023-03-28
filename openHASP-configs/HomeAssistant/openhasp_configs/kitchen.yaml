@@ -88,12 +88,12 @@
               entity_id: "light.kitchen_light_12"
       - obj: "p1b2" # switch, checkbox or btn with toggle true
         properties:
-          "val": '{{ 1 if is_state("light.kitchen_light_14", "on") else 0 }}'
-          "text": '{{ "Cabinet LEDs" if is_state("light.kitchen_light_14", "on") else "Cabinet LEDs" | e }}'
+          "val": '{{ 1 if is_state("light.kitchen_light_27", "on") else 0 }}'
+          "text": '{{ "Cabinet LEDs" if is_state("light.kitchen_light_27", "on") else "Cabinet LEDs" | e }}'
         event:
           "down":
             - service: homeassistant.toggle
-              entity_id: "light.kitchen_light_14"
+              entity_id: "light.kitchen_light_27"
 
       - obj: "p1b3" # switch, checkbox or btn with toggle true
         properties:
@@ -106,12 +106,12 @@
 
       - obj: "p1b4" # switch, checkbox or btn with toggle true
         properties:
-          "val": '{{ 1 if is_state("light.unused", "on") else 0 }}'
-          "text": '{{ "Unused" if is_state("light.unused", "on") else "Unused" | e }}'
+          "val": '{{ 1 if is_state("light.all_lights", "on") else 0 }}'
+          "text": '{{ "Anything" if is_state("light.all_lights", "on") else "Everything" | e }}'
         event:
           "down":
             - service: homeassistant.toggle
-              entity_id: "light.unused"
+              entity_id: "light.all_lights"
 
       - obj: "p1b5" # switch, checkbox or btn with toggle true
         properties:

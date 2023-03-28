@@ -47,7 +47,6 @@
             {% else %}
             {{ "#ffffff" }}
             {% endif %}
-
       - obj: "p0b22"
         properties:
           "text": >
@@ -104,33 +103,32 @@
             - service: homeassistant.toggle
               entity_id: "switch.garden_lights"
 
-
       - obj: "p1b4" # switch, checkbox or btn with toggle true
         properties:
-          "val": '{{ 1 if is_state("switch.unused", "on") else 0 }}'
-          "text": '{{ "Unused" if is_state("switch.unused", "on") else "Unused" | e }}'
+          "val": '{{ 1 if is_state("light.all_lights", "on") else 0 }}'
+          "text": '{{ "Anything" if is_state("light.all_lights", "on") else "Everything" | e }}'
         event:
           "down":
             - service: homeassistant.toggle
-              entity_id: "switch.unused"
+              entity_id: "light.all_lights"
 
       - obj: "p1b5" # switch, checkbox or btn with toggle true
         properties:
-          "val": '{{ 1 if is_state("light.Unused", "on") else 0 }}'
-          "text": '{{ "Unused" if is_state("light.Unused", "on") else "Unused" | e }}'
+          "val": '{{ 1 if is_state("light.hot_tub_lights", "on") else 0 }}'
+          "text": '{{ "Tub\nLEDs" if is_state("light.hot_tub_lights", "on") else "Tub\nLEDs" | e }}'
         event:
           "down":
             - service: homeassistant.toggle
-              entity_id: "light.Unused"
+              entity_id: "light.hot_tub_lights"
 
       - obj: "p1b6" # switch, checkbox or btn with toggle true
         properties:
-          "val": '{{ 1 if is_state("switch.unused", "on") else 0 }}'
-          "text": '{{ "Unused" if is_state("switch.unused", "on") else "Unused" | e }}'
+          "val": '{{ 1 if is_state("fan.hot_tub_pump_1", "on") else 0 }}'
+          "text": '{{ "Pump" if is_state("fan.hot_tub_pump_1", "on") else "Pump" | e }}'
         event:
           "down":
             - service: homeassistant.toggle
-              entity_id: "switch.unused"
+              entity_id: "fan.hot_tub_pump_1"
 
 # Beginning of Alarm Panel
       - obj: "p12b1"          # Alarm Arm Home

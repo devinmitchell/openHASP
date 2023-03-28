@@ -13,3 +13,4 @@ curl "http://192.168.0.15/reboot?" &
 curl "http://192.168.0.139/reboot?" &
 curl "http://192.168.0.31/reboot?" &
 curl "http://192.168.0.113/reboot?" &
+curl "http://192.168.0.124/reboot?" &
