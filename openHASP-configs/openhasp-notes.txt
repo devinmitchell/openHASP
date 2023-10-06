@@ -4,9 +4,9 @@
 
 Taking a backup:
 Normal:
-esptool.py --baud 115200 --port /dev/tty.usbserial-0001 read_flash 0x0 0x800000 lanbon_backup1_8M.bin
+esptool.py --baud 115200 --port /dev/tty.usbserial-0001 read_flash 0x0 0x800000 lanbon_homekit5_backup_8M.bin
 Fast (data loss possible):
-esptool.py --baud 921600 --port /dev/tty.usbserial-0001 read_flash 0x0 0x800000 lanbon_backup1_8M.bin
+esptool.py --baud 921600 --port /dev/tty.usbserial-0001 read_flash 0x0 0x800000 lanbon_homekit5_backup_8M.bin
 
 460800
 
@@ -25,13 +25,13 @@ Update Debug to BSD
 Set MQTT settings 
 Update all template files now
 Update template style
-Update Display settings to 30/0
+Update Display settings to 0/0
 Reboot
 
 
 CONFIGURE HOME ASSISTANT HERE
 from Home Assistant: Config -> Deevices -> Mosquitto Config and publish the following packet/payload:
-hasp/allys_office/config/gpio
+hasp/desk/config/gpio
 {"config":[197658,263456,329249,655628,655886,656155,0,0]}
 
 reboot lanbon 

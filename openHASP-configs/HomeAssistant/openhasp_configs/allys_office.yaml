@@ -124,12 +124,12 @@
 
       - obj: "p1b6" # switch, checkbox or btn with toggle true
         properties:
-          "val": '{{ 1 if is_state("light.unused", "on") else 0 }}'
-          "text": '{{ "\uE769 Unused" if is_state("light.unused", "on") else "\uE769 Unused" | e }}'
+          "val": '{{ 1 if is_state("switch.gaming_pc", "on") else 0 }}'
+          "text": '{{ "\uE322 PC" if is_state("switch.gaming_pc", "on") else "\uE322 PC" | e }}'
         event:
           "down":
             - service: homeassistant.toggle
-              entity_id: "light.unused"
+              entity_id: "switch.gaming_pc"
 
 
 

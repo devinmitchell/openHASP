@@ -80,29 +80,29 @@
 
       - obj: "p1b1" # switch, checkbox or btn with toggle true
         properties:
-          "val": '{{ 1 if is_state("light.office_light_12", "on") else 0 }}'
-          "text": '{{ "\uE210 Ceiling Fan" if is_state("light.office_light_12", "on") else "\uE210 Ceiling Fan" | e }}'
+          "val": '{{ 1 if is_state("switch.shelly_office_fan", "on") else 0 }}'
+          "text": '{{ "\uE210 Ceiling Fan" if is_state("switch.shelly_office_fan", "on") else "\uE210 Ceiling Fan" | e }}'
         event:
           "down":
             - service: homeassistant.toggle
-              entity_id: "light.office_light_12"
+              entity_id: "switch.shelly_office_fan"
       - obj: "p1b2" # switch, checkbox or btn with toggle true
         properties:
-          "val": '{{ 1 if is_state("light.office_light_14", "on") else 0 }}'
-          "text": '{{ "\uE769 Fan Lights" if is_state("light.office_light_14", "on") else "\uE769 Fan Lights" | e }}'
+          "val": '{{ 1 if is_state("light.office_spots", "on") else 0 }}'
+          "text": '{{ "\uE769 Fan\nLights" if is_state("light.office_spots", "on") else "\uE769 Fan\nLights" | e }}'
         event:
           "down":
             - service: homeassistant.toggle
-              entity_id: "light.office_light_14"
+              entity_id: "light.office_spots"
 
       - obj: "p1b3" # switch, checkbox or btn with toggle true
         properties:
-          "val": '{{ 1 if is_state("switch.alastairs_office", "on") else 0 }}'
-          "text": '{{ "LEDs" if is_state("switch.alastairs_office", "on") else "LEDs" | e }}'
+          "val": '{{ 1 if is_state("switch.office_non_ups_devices", "on") else 0 }}'
+          "text": '{{ "Non-UPS\nDevices" if is_state("switch.office_non_ups_devices", "on") else "Non-UPS\nDevices" | e }}'
         event:
           "down":
             - service: homeassistant.toggle
-              entity_id: "switch.alastairs_office"
+              entity_id: "switch.office_non_ups_devices"
 
       - obj: "p1b4" # switch, checkbox or btn with toggle true
         properties:
@@ -131,7 +131,23 @@
             - service: homeassistant.toggle
               entity_id: "light.unused"
 
+      - obj: "p1b8" # switch, checkbox or btn with toggle true
+        properties:
+          "val": '{{ 1 if is_state("light.office_lamps", "on") else 0 }}'
+          "text": '{{ "Office\nLamps" if is_state("light.office_lamps", "on") else "Office\nLamps" | e }}'
+        event:
+          "down":
+            - service: homeassistant.toggle
+              entity_id: "light.office_lamps"
 
+      - obj: "p1b9" # switch, checkbox or btn with toggle true
+        properties:
+          "val": '{{ 1 if is_state("switch.shelly_office_fireplace", "on") else 0 }}'
+          "text": '{{ "Fireplace" if is_state("switch.shelly_office_fireplace", "on") else "Fireplace" | e }}'
+        event:
+          "down":
+            - service: homeassistant.toggle
+              entity_id: "switch.shelly_office_fireplace"
 
 # Beginning of Alarm Panel
       - obj: "p12b1"          # Alarm Arm Home
