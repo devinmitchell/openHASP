@@ -114,6 +114,15 @@
 
       - obj: "p1b5" # switch, checkbox or btn with toggle true
         properties:
+          "val": '{{ 1 if is_state("switch.irrigation", "on") else 0 }}'
+          "text": '{{ "\uE58F Irrigation" if is_state("switch.irrigation", "on") else "\uE58F Irrigation" | e }}'
+        event:
+          "down":
+            - service: homeassistant.toggle
+              entity_id: "switch.irrigation"
+
+      - obj: "p1b6" # switch, checkbox or btn with toggle true
+        properties:
           "val": '{{ 1 if is_state("switch.flood_light", "on") else 0 }}'
           "text": '{{ "\uE5A8 Flood" if is_state("switch.flood_light", "on") else "\uE5A8 Flood" | e }}'
         event:

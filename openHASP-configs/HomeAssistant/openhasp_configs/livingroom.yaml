@@ -151,12 +151,12 @@
 
       - obj: "p1b9" # switch, checkbox or btn with toggle true
         properties:
-          "val": '{{ 1 if is_state("switch.paulas_lamp", "on") else 0 }}'
-          "text": '{{ "Paulas\nLamp" if is_state("switch.paulas_lamp", "on") else "Paulas\nLamp" | e }}'
+          "val": '{{ 1 if is_state("light.paulas_lamp", "on") else 0 }}'
+          "text": '{{ "Paulas\nLamp" if is_state("light.paulas_lamp", "on") else "Paulas\nLamp" | e }}'
         event:
           "down":
             - service: homeassistant.toggle
-              entity_id: "switch.paulas_lamp"
+              entity_id: "light.paulas_lamp"
 
 
 # Page 2 - Hue Scenes Begin

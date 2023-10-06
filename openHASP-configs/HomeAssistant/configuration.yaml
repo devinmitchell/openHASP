@@ -1,6 +1,7 @@
-
 # Configure a default setup of Home Assistant (frontend, api, etc)
 default_config:
+
+sun:
 
 # Text to speech
 tts:
@@ -9,8 +10,150 @@ tts:
 automation: !include automations.yaml
 script: !include scripts.yaml
 scene: !include scenes.yaml
-nest: !include nest.yaml
+# nest: !include nest.yaml
 alarm_control_panel: !include alarm_control_panel.yaml
 sensor: !include sensor.yaml
-openhasp: !include openhasp.yaml
+openhasp: !include_dir_merge_named openhasp_configs/
+
+shell_command:
+  dynamic_dns: /usr/bin/curl "https://reseller.enom.com/interface.asp?command=SetDNSHost&uid=sheepster&pw=fxkw27e7&Zone=ha.ukbeech.com&DomainPassword=wb4wzz"
+  reboot_lanbons: 
+    /usr/bin/curl "http://192.168.0.83/reboot?"
+    /usr/bin/curl "http://192.168.0.112/reboot?"
+    /usr/bin/curl "http://192.168.0.120/reboot?"
+    /usr/bin/curl "http://192.168.0.29/reboot?"
+    /usr/bin/curl "http://192.168.0.107/reboot?"
+    /usr/bin/curl "http://192.168.0.155/reboot?"
+    /usr/bin/curl "http://192.168.0.156/reboot?"
+    /usr/bin/curl "http://192.168.0.67/reboot?"
+    /usr/bin/curl "http://192.168.0.119/reboot?"
+    /usr/bin/curl "http://192.168.0.92/reboot?"
+    /usr/bin/curl "http://192.168.0.15/reboot?"
+    /usr/bin/curl "http://192.168.0.139/reboot?"
+    /usr/bin/curl "http://192.168.0.113/reboot?"
+    /usr/bin/curl "http://192.168.0.124/reboot?"
+    /usr/bin/curl "http://192.168.0.125/reboot?"
+  
+http:
+  base_url: ha.ukbeech.com
+#   ssl_certificate: /ssl/fullchain.pem
+#   ssl_key: /ssl/privkey.pem
+  use_x_forwarded_for: true
+  trusted_proxies:
+    - 172.30.33.0/24
+    - 192.168.0.0/24
+    - 192.168.1.0/24
+    - 192.168.2.0/24
+   
+climate:
+  - platform: warmup
+    username: ukbeech@icloud.com
+    password: Fxkw27e9!
+    
+landroid_cloud:
+  - email: worx@devinmitchell.com
+    password: Fxkw27e9
+
+
+group:
+  vacation lights:
+    - light.dining_light_14
+    - light.downbath_light_12
+    - light.downhall_light_14
+    - light.mainhall_light_12
+    - light.living_room_spots
+    - light.living_room_2
+    - light.kitchen_light_12
+    - light.kitchen_light_14
+    - light.mbr_light_14
+    - light.ensuite_light_12
+    - light.mbr_spots
+    - light.mbr_lamps
+    - light.porch_light_14
+    - light.upbath_light_12
+    - light.office_spots
+    - light.landing_fan_lights
+    - light.upstairs_hallway_spots
+
+# frontend:
+#   javascript_version: latest
+#   themes: !include_dir_merge_named themes
+#   extra_module_url:
+#     - /local/community/lovelace-card-mod/card-mod.js #or wherever you ended up putting card-mod.js
+    
+
+template:
+  - sensor:
+      - name: "Battery Power Out"
+        unit_of_measurement: "kW"
+        device_class: power
+        state_class: measurement
+        state: >
+          {% set power = states('sensor.myenergi_harvi_13532093_power_ct_ac_battery' )|float(0) /1000 %}
+          {% if power >= 0 %}
+            {{ power }}
+          {% else %}
+            0
+          {% endif %}
+        availability: "{{ states('sensor.myenergi_harvi_13532093_power_ct_ac_battery' )|is_number }}"
+      - name: "Battery Power In"
+        unit_of_measurement: "kW"
+        device_class: power
+        state_class: measurement
+        state: >
+          {% set power = states('sensor.myenergi_harvi_13532093_power_ct_ac_battery' )|float(0) /1000 %}
+          {% if power < 0 %}
+            {{ power|abs }}
+          {% else %}
+            0
+          {% endif %}
+        availability: "{{ states('sensor.myenergi_harvi_13532093_power_ct_ac_battery' )|is_number }}"
+
+      - name: "Pylontech SOC"
+        unique_id: "pylontech_soc"
+        unit_of_measurement: "%"
+        state: >
+          {% set bat1 = states("sensor.pylontech1_soc") | float %}
+          {% set bat2 = states("sensor.pylontech2_soc") | float %}
+          {% set bat3 = states("sensor.pylontech3_soc") | float %}
+          {% if bat1 < 1 or bat1 > 100 or bat2 < 1 or bat2 > 100 or bat3 < 1 or bat3 > 100 %}
+          {% else %}
+          {{ ((bat1 + bat2 + bat3) /3) |int}}
+          {% endif %}
+
+      - name: "Pylontech Avg Temp"
+        unique_id: "pylontech_temp"
+        unit_of_measurement: "C"
+        state: >
+          {% set btemp1 = states("sensor.pylontech1_tempr") | float %}
+          {% set btemp2 = states("sensor.pylontech2_tempr") | float %}
+          {% set btemp3 = states("sensor.pylontech3_tempr") | float %}
+          {% if btemp1 < 1 or btemp1 > 100 or btemp2 < 1 or btemp2 > 100 or btemp3 < 1 or btemp3 > 100 %}
+          {% else %}
+          {{ ((btemp1 + btemp2 + btemp3) /3)}}
+          {% endif %}
+
+      - name: "Pylontech Total Current"
+        unique_id: "pylontech_total_current"
+        unit_of_measurement: "A"
+        state: >
+          {% set bcurr1 = states("sensor.pylontech1_curr") | float %}
+          {% set bcurr2 = states("sensor.pylontech2_curr") | float %}
+          {% set bcurr3 = states("sensor.pylontech3_curr") | float %}
+          {{ (bcurr1 + bcurr2 + bcurr3) }}
+
+      - name: "Hottub Power (positive)"
+        unique_id: "hottub_power_positive"
+        unit_of_measurement: "W"
+        state: >
+          {% set htpp = states("sensor.myenergi_harvi_hottub_ct3") | int %}
+          {{ (htpp * -1)}}
+
+      - name: "ID.5 Range"
+        unique_id: "id5_range"
+        unit_of_measurement: "Mi"
+        state: >
+          {% set range = states("sensor.wvgzzze2znp505987_range") | int %}
+          {{ (range * 0.621371)|int}}
+
 
