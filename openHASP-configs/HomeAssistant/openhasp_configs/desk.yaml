@@ -1,4 +1,4 @@
-  office:
+  desk:
     objects:
 
 # Begin Header
@@ -75,6 +75,27 @@
             {% else %}
             {{ "#000000" }}
             {% endif %}
+
+      - obj: "p0b23"
+        properties:
+          "text": >
+            {{ "\uE238" }}
+          "text_color": >
+            {% if 50 <= states('sensor.pylontech_soc') |int %}
+            {{ "#00ff00" }}
+            {% elif 25 <= states('sensor.pylontech_soc') |int %}
+            {{ "#ffff00" }}
+            {% elif 10 <= states('sensor.pylontech_soc') |int %}
+            {{ "#ff0000" }}
+            {% else %}
+            {{ "#000000" }}
+            {% endif %}
+
+      - obj: "p0b24"
+        properties:
+          "text": "{{ states('sensor.pylontech_soc') }}"
+          "text_color": >
+            {{ "#ffffff" }}
 
 # End Header
 

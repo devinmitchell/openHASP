@@ -3,9 +3,9 @@
 {"page":1,"id":1,"obj":"btn","x":10,"y":30,"w":220,"h":60,"toggle":true,"text":"\uE335 Relay 1","text_font":32,"align":1}
 {"page":1,"id":2,"obj":"btn","x":10,"y":95,"w":220,"h":60,"toggle":true,"text":"\uE335 Relay 2","text_font":32,"align":1}
 {"page":1,"id":3,"obj":"btn","x":10,"y":160,"w":220,"h":60,"toggle":true,"text":"\uE335 Relay 3","text_font":32,"align":1}
-{"page":1,"id":14,"obj":"btn","x":10,"y":225,"w":70,"h":35,"toggle":true,"text":"Relay\n4","text_font":12,"align":1}
-{"page":1,"id":15,"obj":"btn","x":85,"y":225,"w":70,"h":35,"toggle":true,"text":"Relay\n5","text_font":12,"align":1}
-{"page":1,"id":16,"obj":"btn","x":160,"y":225,"w":70,"h":35,"toggle":true,"text":"Relay\n6","text_font":12,"align":1}
+{"page":1,"id":14,"obj":"btn","x":10,"y":225,"w":70,"h":35,"toggle":true,"text":"Relay\n4","text_font":16,"align":1}
+{"page":1,"id":15,"obj":"btn","x":85,"y":225,"w":70,"h":35,"toggle":true,"text":"Relay\n5","text_font":16,"align":1}
+{"page":1,"id":16,"obj":"btn","x":160,"y":225,"w":70,"h":35,"toggle":true,"text":"Relay\n6","text_font":16,"align":1}
 
 
 {"comment":" ----------- Page 2 layout ------------"}
