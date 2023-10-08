@@ -81,11 +81,11 @@
           "text": >
             {{ "\uE238" }}
           "text_color": >
-            {% if 50 <= states('sensor.pylontech_soc') |int %}
+            {% if 50 <= states('sensor.tank_percentage_full') |int %}
             {{ "#00ff00" }}
-            {% elif 25 <= states('sensor.pylontech_soc') |int %}
+            {% elif 25 <= states('sensor.tank_percentage_full') |int %}
             {{ "#ffff00" }}
-            {% elif 10 <= states('sensor.pylontech_soc') |int %}
+            {% elif 10 <= states('sensor.tank_percentage_full') |int %}
             {{ "#ff0000" }}
             {% else %}
             {{ "#000000" }}
@@ -93,7 +93,7 @@
 
       - obj: "p0b24"
         properties:
-          "text": "{{ states('sensor.pylontech_soc') }}"
+          "text": "{{ states('sensor.tank_percentage_full') | int }}"
           "text_color": >
             {{ "#ffffff" }}
 

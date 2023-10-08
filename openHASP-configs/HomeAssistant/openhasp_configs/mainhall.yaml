@@ -76,6 +76,27 @@
             {{ "#000000" }}
             {% endif %}
 
+      - obj: "p0b23"
+        properties:
+          "text": >
+            {{ "\uE238" }}
+          "text_color": >
+            {% if 50 <= states('sensor.tank_percentage_full') |int %}
+            {{ "#00ff00" }}
+            {% elif 25 <= states('sensor.tank_percentage_full') |int %}
+            {{ "#ffff00" }}
+            {% elif 10 <= states('sensor.tank_percentage_full') |int %}
+            {{ "#ff0000" }}
+            {% else %}
+            {{ "#000000" }}
+            {% endif %}
+
+      - obj: "p0b24"
+        properties:
+          "text": "{{ states('sensor.tank_percentage_full') | int }}"
+          "text_color": >
+            {{ "#ffffff" }}
+            
       # End Header
 
       - obj: "p1b1" # switch, checkbox or btn with toggle true
