@@ -96,13 +96,13 @@
           "text": "{{ states('sensor.tank_percentage_full') | int }}"
           "text_color": >
             {{ "#ffffff" }}
-            
+
 # End Header
 
       - obj: "p1b1" # switch, checkbox or btn with toggle true
         properties:
           "val": '{{ 1 if is_state("light.porch_light_12", "on") else 0 }}'
-          "text": '{{ "\uE6E8 Front Lights" if is_state("light.porch_light_12", "on") else "\uE335 Front Lights" | e }}'
+          "text": '{{ "\uE6E8 Front" if is_state("light.porch_light_12", "on") else "\uE335 Front" | e }}'
         event:
           "down":
             - service: homeassistant.toggle
@@ -135,14 +135,41 @@
 
       - obj: "p1b5" # switch, checkbox or btn with toggle true
         properties:
+          "val": '{{ 1 if is_state("switch.unused", "on") else 0 }}'
+          "text": '{{ "Unused if is_state("switch.unused", "on") else "Unused" | e }}'
+        event:
+          "down":
+            - service: homeassistant.toggle
+              entity_id: "switch.unused"
+
+      - obj: "p1b6" # switch, checkbox or btn with toggle true
+        properties:
+          "val": '{{ 1 if is_state("switch.unused", "on") else 0 }}'
+          "text": '{{ "Unused if is_state("switch.unused", "on") else "Unused" | e }}'
+        event:
+          "down":
+            - service: homeassistant.toggle
+              entity_id: "switch.unused"
+
+      - obj: "p1b7" # switch, checkbox or btn with toggle true
+        properties:
           "val": '{{ 1 if is_state("switch.irrigation", "on") else 0 }}'
-          "text": '{{ "\uE58F Irrigation" if is_state("switch.irrigation", "on") else "\uE58F Irrigation" | e }}'
+          "text": '{{ "\uE58F Garden" if is_state("switch.irrigation", "on") else "\uE58F Garden" | e }}'
         event:
           "down":
             - service: homeassistant.toggle
               entity_id: "switch.irrigation"
 
-      - obj: "p1b6" # switch, checkbox or btn with toggle true
+      - obj: "p1b8" # switch, checkbox or btn with toggle true
+        properties:
+          "val": '{{ 1 if is_state("switch.balcony_irrigation", "on") else 0 }}'
+          "text": '{{ "\uE58F Balcony" if is_state("switch.balcony_irrigation", "on") else "\uE58F Balcony" | e }}'
+        event:
+          "down":
+            - service: homeassistant.toggle
+              entity_id: "switch.balcony_irrigation"
+         
+      - obj: "p1b9" # switch, checkbox or btn with toggle true
         properties:
           "val": '{{ 1 if is_state("switch.flood_light", "on") else 0 }}'
           "text": '{{ "\uE5A8 Flood" if is_state("switch.flood_light", "on") else "\uE5A8 Flood" | e }}'
