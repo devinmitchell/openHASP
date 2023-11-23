@@ -1,15 +1,16 @@
 {"comment":" ----------- Page 1 layout ------------"}
 
-{"page":1,"id":1,"obj":"btn","x":10,"y":30,"w":220,"h":55,"toggle":true,"text":"\uE335 Relay 1","text_font":32,"align":1}
-{"page":1,"id":2,"obj":"btn","x":10,"y":90,"w":108,"h":55,"toggle":true,"text":"\uE335 Relay 2","text_font":20,"align":1}
-{"page":1,"id":3,"obj":"btn","x":10,"y":150,"w":108,"h":55,"toggle":true,"text":"\uE335 Relay 3","text_font":20,"align":1}
+{"page":1,"id":1,"obj":"btn","x":10,"y":30,"w":108,"h":55,"toggle":true,"text":"\uE335 Relay 1","text_font":14,"align":1}
+{"page":1,"id":2,"obj":"btn","x":10,"y":90,"w":108,"h":55,"toggle":true,"text":"\uE335 Relay 2","text_font":16,"align":1}
+{"page":1,"id":3,"obj":"btn","x":10,"y":150,"w":108,"h":55,"toggle":true,"text":"\uE335 Relay 3","text_font":16,"align":1}
 
 {"page":1,"id":4,"obj":"btn","x":10,"y":210,"w":70,"h":60,"toggle":true,"text":"Relay\n4","text_font":16,"align":1}
 {"page":1,"id":5,"obj":"btn","x":85,"y":210,"w":70,"h":60,"toggle":true,"text":"Relay\n5","text_font":16,"align":1}
 {"page":1,"id":6,"obj":"btn","x":160,"y":210,"w":70,"h":60,"toggle":true,"text":"Relay\n6","text_font":16,"align":1}
 
-{"page":1,"id":8,"obj":"btn","x":120,"y":90,"w":108,"h":55,"toggle":true,"text":"Relay\n8","text_font":20,"align":1}
-{"page":1,"id":9,"obj":"btn","x":120,"y":150,"w":108,"h":55,"toggle":true,"text":"Relay\n9","text_font":20,"align":1}
+{"page":1,"id":7,"obj":"btn","x":120,"y":30,"w":108,"h":55,"toggle":true,"text":"Relay\n7","text_font":16,"align":1}
+{"page":1,"id":8,"obj":"btn","x":120,"y":90,"w":108,"h":55,"toggle":true,"text":"Relay\n8","text_font":16,"align":1}
+{"page":1,"id":9,"obj":"btn","x":120,"y":150,"w":108,"h":55,"toggle":true,"text":"Relay\n9","text_font":16,"align":1}
 
 
 {"comment":" ----------- Page 2 layout ------------"}
